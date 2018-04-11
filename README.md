@@ -1,3 +1,21 @@
+# Fork from: https://github.com/rambabusaravanan/gradle-android-s3
+New features:
+   - Filter uploaded files by extension
+   - Attach metadata to each uploaded file
+   - Set aws region
+ 
+ ```
+ s3 {
+  metadata = [
+          "branch": gitBranch(),
+          "dev"   : getUserId(),
+          "build" : String.valueOf(rootProject.ext.appVersionCode)
+      ]
+  filterExtensions = [".apk"]
+  region = "us-east"
+}
+```
+
 # Android S3 Uploader
 
 Upload the apk of all the build variants to S3 and maintain all flavours of every version.
